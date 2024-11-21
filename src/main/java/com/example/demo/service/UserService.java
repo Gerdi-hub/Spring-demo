@@ -20,15 +20,17 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
 //    private List<User> users = new ArrayList<>( List.of(
 //            new User(1L, "Mari Mets", "mari@mets.com"),
 //            new User(2L, "Paul Ploom", "paul@ploom.com"),
 //            new User(3L, "Kalle Kask", "kalle@kask.com")));
 
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+
 
 //    public User[] multipleUsers2() {
 //        User user1 = new User(1L, "Mari Mets", "mari@mets.com");
