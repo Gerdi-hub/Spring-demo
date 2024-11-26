@@ -9,8 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/cart")
-
-
+@CrossOrigin(origins = "*")
 public class CartController {
     private final CartService cartService;
     private final ProductRepository productRepository;
@@ -41,5 +40,16 @@ public class CartController {
       return  cartService.calculateCartTotal();
 
     }
+
+    @GetMapping("/total-tax")
+    public double calculateTotalTax() {
+        return cartService.calculateTax();
+    }
+
+    @GetMapping("/total-with-tax")
+    public double calculateTotalWithTax() {
+        return cartService.calculateTotalWithTax();
+    }
+
 
 }

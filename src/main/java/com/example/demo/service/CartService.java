@@ -45,5 +45,25 @@ public class CartService {
 
     }
 
+    public double calculateTax(){
+        List<Product> products = getAllProducts();
+        double total = calculateCartTotal() * 0.22;
+        System.out.println(total);
+        return total;
+    }
+
+    public double applyDiscount(boolean isMember) {
+        double discount = 0;
+        if (isMember) {
+            double totalSum = calculateCartTotal() + calculateTax();
+            discount = totalSum * 0.1;
+        }
+        return discount;
+    }
+
+    public double calculateTotalWithTax (){
+        return calculateCartTotal() + calculateTax();
+    }
+
 }
 
